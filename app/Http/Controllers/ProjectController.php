@@ -13,7 +13,7 @@ class ProjectController extends Controller
     public function index()
     {
         $projects = Project::all();
-        return view('dash.index', ['projects' => $projects]);
+        return view('dash.index', compact('projects'));
     }
 
     /**
@@ -50,7 +50,7 @@ class ProjectController extends Controller
     }
 
     /**
-     * Debe mostrar los datos del recurso seleccionado, ver sus detalles, vista (dash/show)
+     * Debe mostrar los datos del recurso (proyecto) seleccionado, ver sus detalles, vista (dash/show)
      */
     public function show($id)
     {

@@ -24,12 +24,19 @@ Route::get('/', function () {
 
 Route::resource('dash', ProjectController::class);
 
-// Route::middleware([
-//     'auth:sanctum',
-//     config('jetstream.auth_session'),
-//     'verified',
-// ])->group(function () {
-//     Route::get('/dash', function () {
-//         return view('dash');
-//     })->name('dash');
-// });
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified',
+])->group(function () {
+    // ruta lleva al index junto a show
+    Route::get('/inicio', [ProjectController::class, 'index'])->name('inicio');
+
+    // rutas lleva a crear proyecto
+    Route::get('/create', [ProjectController::class, 'create'])->name('create');
+
+    Route::post('/create', [ProjectController::class, 'store'])->name('create');
+
+    // Ruta lleva a show proyecto
+    Route::get('/show', [ProjectController::class, 'show'])->name('show');
+});
