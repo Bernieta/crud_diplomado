@@ -58,6 +58,18 @@
           <li class="cursor-pointer hover:scale-110 transition"><a href="create">Crear</a></li>
         </ul>
       </nav>
+      <footer class="h-[70%] w-full relative">
+        <div class="w-full absolute bottom-[4rem] border-t pt-4">
+          <h4 class="text-center font-bold mb-3">Integrantes:</h4>
+          <ul class="flex flex-col text-lg space-y-4 text-center">
+            <li class="text-xs">Juan Camilo Arrieta Bernal</li>
+            <li class="text-xs">Rober David Bracamonte Arias</li>
+            <li class="text-xs">Carlos Alberto Oyola Arrieta</li>
+            <li class="text-xs">Sebastian Andres Solano Sotelo</li>
+            <li class="text-xs">Elkin Andres Vasquez Madrid</li>
+          </ul>
+        </div>
+      </footer>
     </aside>
   
     <!-- content -->

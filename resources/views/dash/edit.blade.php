@@ -39,9 +39,9 @@
     <div class="flex flex-col space-y-3">
       <label for="status">Estado</label>
       <select name="status" id="status" class="rounded-xl text-center bg-slate-200 border-0">
-        <option value="Pendiente" @if ($project->status == 'Pendiente') disabled selected @endif>Pendiente</option>
-        <option value="Activo" @if ($project->status == 'Activo') disabled selected @endif>Activo</option>
-        <option value="Completado" @if ($project->status == 'Completado') disabled selected @endif>Completado</option>
+        <option value="Pendiente" @if ($project->status == 'Pendiente') selected @endif>Pendiente</option>
+        <option value="Activo" @if ($project->status == 'Activo') selected @endif>Activo</option>
+        <option value="Completado" @if ($project->status == 'Completado') selected @endif>Completado</option>
       </select>
     </div>
     @if ($errors->any())

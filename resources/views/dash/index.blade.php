@@ -25,7 +25,7 @@
         <div class="w-[90%] p-4 grid grid-cols-3 gap-4">
         <h3>{{ $project->description }}</h3>
         <h5 class="text-center">{{ $project->status }}</h5>
-        <div class="flex justify-between pl-24">
+        <div class="flex justify-between space-x-2 pl-24">
           <form action="{{ route('edit', ['id'=>$project->id]) }}" method="POST" class="flex justify-end">
             @method('GET')
             @csrf
