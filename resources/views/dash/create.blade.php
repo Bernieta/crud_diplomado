@@ -9,6 +9,8 @@
 <div class="flex justify-center mt-[2rem]">
   <form action="{{ route('create') }}" method="post" class="space-y-4 sm:space-y-0 grid sm:grid-cols-2 gap-4">
     @csrf
+    <!-- input con el id del usuario logeado -->
+    <input type="hidden" id="usid" name="usid" value="{{ auth()->user()->id }}">
     <!-- descripcion -->
     <div class="flex flex-col space-y-3">
       <label for="description">Descripción</label>

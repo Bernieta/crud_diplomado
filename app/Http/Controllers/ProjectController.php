@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Project;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProjectController extends Controller
 {
@@ -12,7 +13,17 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        $projects = Project::all();
+        $user = Auth::user();
+
+        // Asegúrate de que el usuario esté autenticado
+        if ($user) {
+            // Obtén todos los proyectos del usuario autenticado
+            $projects = $user->projects;
+        } else {
+            $projects = collect(); // Devuelve una colección vacía si no hay usuario autenticado
+        }
+
+        // Retorna la vista con los proyectos del usuario autenticado
         return view('dash.index', compact('projects'));
     }
 
@@ -37,6 +48,7 @@ class ProjectController extends Controller
             'value' => 'required',
             'location' => 'required',
             'status' => 'required',
+            'usid' => 'required'
         ]);
         $project = new Project();
         $project->description = $request->description;
@@ -45,6 +57,7 @@ class ProjectController extends Controller
         $project->value = $request->value;
         $project->location = $request->location;
         $project->status = $request->status;
+        $project->user_id = $request->usid;
         $project->save();
         return redirect()->route('dash.index')->with('success', 'Proyecto creado con exito');
     }

@@ -19,6 +19,7 @@ return new class extends Migration
             $table->float('value');
             $table->string('location');
             $table->enum('status', ['Pendiente', 'Activo', 'Completado']);
+            $table->foreignId('user_id')->nullable();
             $table->timestamps();
         });
     }
