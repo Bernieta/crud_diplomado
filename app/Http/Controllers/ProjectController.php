@@ -63,18 +63,6 @@ class ProjectController extends Controller
     }
 
     /**
-     * Debe mostrar los datos del recurso (proyecto) seleccionado, ver sus detalles, vista (dash/show)
-     */
-    public function show($id)
-    {
-        $project = Project::find($id);
-        if (!$project) // el recurso no existe se redirecciona al index
-            return redirect()->route('dash.index')->with('error', 'Proyecto no encontrado');
-
-        return view('dash.show', ['project' => $project]);
-    }
-
-    /**
      * Muestra la vista con el formulario de edición, debe tener los datos del recurso a actalizar, vista (dash/edit)
      */
     public function edit($id)
@@ -83,7 +71,7 @@ class ProjectController extends Controller
         if (!$project) // el recurso no existe se redirecciona al index
             return redirect()->route('dash.index')->with('error', 'Proyecto no encontrado');
 
-        return view('dash.edit', ['project' => $project]);
+        return view('dash.edit', compact('project'));
     }
 
     /**

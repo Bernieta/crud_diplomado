@@ -37,6 +37,11 @@ Route::middleware([
 
     Route::post('/create', [ProjectController::class, 'store'])->name('create');
 
-    // Ruta lleva a show proyecto
-    Route::get('/show', [ProjectController::class, 'show'])->name('show');
+    // Ruta lleva a edit
+    Route::get('/edit/{id}', [ProjectController::class, 'edit'])->name('edit');
+
+    Route::patch('/edit/{id}', [ProjectController::class, 'update'])->name('update');
+
+    // Ruta ejecuta destroy
+    Route::delete('/delete/{id}', [ProjectController::class, 'destroy'])->name('destroy');
 });
